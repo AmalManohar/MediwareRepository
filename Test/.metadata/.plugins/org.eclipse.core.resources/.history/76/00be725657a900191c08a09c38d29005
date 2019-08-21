@@ -1,0 +1,21 @@
+package com.mediware.Mediware;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class WebElements extends Base{
+
+	public WebElement login_username() {
+		WebElement username = driver.findElement(By.id(prop.getProperty("usernameId")));
+		return username;
+	}
+	public WebElement login_button() {
+		WebElement button=driver.findElement(By.xpath(prop.getProperty("loginButton")));
+		return button;
+	}
+}

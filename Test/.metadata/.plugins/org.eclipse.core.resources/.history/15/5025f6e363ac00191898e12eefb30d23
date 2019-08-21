@@ -1,0 +1,13 @@
+package com.mediware.Mediware;
+
+public class Vitals extends Base{
+
+	public void vitalsEntry() {
+	
+		
+		driver.switchTo().defaultContent();
+	}
+	
+	
+	
+}

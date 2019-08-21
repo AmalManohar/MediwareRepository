@@ -1,0 +1,17 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Registration extends Base{
+
+	@Test
+	public void reg() throws Exception {
+		driver.switchTo().defaultContent();
+		Registration_elements elements=new Registration_elements();
+		WebElement register=elements.regClick();
+		register.click();
+		WebElement date_of_birth=elements.date();
+		date_of_birth.click();
+	}
+}

@@ -1,0 +1,46 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
+
+public class Registration extends Base{
+
+	@Test
+	public void reg() throws Exception {
+		driver.switchTo().defaultContent();
+		Registration_elements elements=new Registration_elements();
+		WebElement register=elements.regClick();
+		register.click();
+		WebElement date_of_birth=elements.date();
+		date_of_birth.click();
+		
+		WebElement nationality_select=elements.nationality();
+		nationality_select.click();
+		Thread.sleep(1000);
+		nationality_select.sendKeys(prop.getProperty("nationality"));
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(prop.getProperty("nationality_select"))));
+		nationality_select.sendKeys(Keys.ARROW_DOWN);
+	    WebElement nationalityName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li[1]/a"));
+	    Thread.sleep(3000);
+	    Actions actions = new Actions(driver);
+	    actions.doubleClick(nationalityName).perform();
+		Thread.sleep(1000);
+		
+		WebElement emirates_select=elements.emirates();
+		emirates_select.click();
+		emirates_select.sendKeys(prop.getProperty("emirates"));
+	    Thread.sleep(1000);
+	    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='txtDistEmirates']")));
+	    emirates_select.sendKeys(Keys.ARROW_DOWN);
+	    WebElement emiratesName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li/a"));
+	    Thread.sleep(3000);
+	    Actions actions = new Actions(driver);
+	    actions.doubleClick(emiratesName).perform();
+	    Thread.sleep(2000);
+	}
+}

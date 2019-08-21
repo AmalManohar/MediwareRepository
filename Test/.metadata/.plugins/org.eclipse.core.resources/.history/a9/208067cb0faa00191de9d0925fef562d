@@ -1,0 +1,23 @@
+package com.mediware.Mediware;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Data {
+
+	public void data_entries() throws Exception {
+		FileInputStream fis = new FileInputStream("C:\\Users\\user\\Desktop\\leo\\workSpace\\amal\\mediware_data.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		Row row = sheet.getRow(0);
+		Cell firstname = row.getCell(0);
+		String f_name=""+firstname;
+		Cell mobno=row.getCell(1);
+		String mobile_no=""+mobno;
+	}
+}

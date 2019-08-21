@@ -1,0 +1,50 @@
+package com.mediware.Mediware;
+
+import static org.testng.Assert.assertTrue;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Registration_elements extends Registration{
+	WebElement patient_id;
+	public WebElement regClick() throws Exception {
+	
+	Thread.sleep(1000);
+	WebElement element = driver.findElement(By.xpath(prop.getProperty("appointSlot")));
+	Actions action = new Actions(driver);
+    action.moveToElement(element).build().perform();
+    Thread.sleep(1000);
+    WebElement element2=driver.findElement(By.xpath(prop.getProperty("newRegTool")));
+    action.moveToElement(element2).build().perform();
+    Thread.sleep(1000);
+    WebElement new_reg=driver.findElement(By.xpath(prop.getProperty("regButton")));
+    return new_reg;
+	}
+	public WebElement date() {
+		WebElement patient_id = driver.findElement(By.xpath(prop.getProperty("patient_id")));
+		WebElement switch_frame=driver.findElement(By.xpath("//iframe[@id='AppointmentDiv']"));
+		driver.switchTo().frame(switch_frame);
+		
+		//assertTrue(driver.findElement(By.xpath("//input[@id='txtDOB']")).isDisplayed());
+		Thread.sleep(1000);
+		WebElement dob=driver.findElement(By.xpath(prop.getProperty("date_of_birth")));
+		dob.click();
+		Thread.sleep(1000);
+		
+		WebElement dob_year=driver.findElement(By.xpath(prop.getProperty("year_select")));
+		Select year_select=new Select(dob_year);
+		year_select.selectByVisibleText(prop.getProperty("dobYear"));
+		
+		WebElement dob_month=driver.findElement(By.xpath(prop.getProperty("month_select")));
+		Thread.sleep(1000);
+		Select month_select=new Select(dob_month);
+		month_select.selectByVisibleText(obj.prop.getProperty("dobMonth"));
+		Thread.sleep(1000);
+		
+		WebElement dob_date=driver.findElement(By.xpath("//td[@data-year='1996']//a[text()=5]"));
+		dob_date.click();
+		
+	}
+}

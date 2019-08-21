@@ -1,0 +1,25 @@
+package com.mediware.Mediware;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class VitalDetails_elements extends VitalDetails{
+	
+	public WebElement vital_Click() {
+		WebElement menu_frame=driver.findElement(By.xpath(prop.getProperty("callingpagediv")));
+		driver.switchTo().frame(menu_frame);
+		WebElement vital = driver.findElement(By.xpath(prop.getProperty("vitalClick")));
+		vital.click();
+		WebElement vital_frame=driver.findElement(By.xpath(prop.getProperty("divmainPage")));
+		return vital_frame;
+	}
+	public void enterVitals() {
+		Row row = sheet.getRow(10);
+		Cell year_select = row.getCell(1);
+		int temp= (int)workbook.getSheetAt(0).getRow(10).getCell(1).getNumericCellValue();
+		String year1=""+temp;
+	}
+
+}

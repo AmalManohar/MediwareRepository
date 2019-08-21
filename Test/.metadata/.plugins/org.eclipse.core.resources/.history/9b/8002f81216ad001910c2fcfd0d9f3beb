@@ -1,0 +1,12 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class VitalDetails_elements extends VitalDetails{
+	
+	public void vitalClick() {
+		WebElement vitalClick=driver.findElement(By.xpath(prop.getProperty("vitalClick")));
+	}
+
+}

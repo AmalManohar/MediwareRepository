@@ -1,0 +1,98 @@
+package com.mediware.Mediware;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class Registration extends Base{
+
+	Registration_elements elements;
+	
+	@Test(priority=1)
+	public void reg() throws Exception {
+		
+		 elements = new Registration_elements();
+		driver.switchTo().defaultContent();
+		
+		WebElement register = elements.regClick();
+		register.click();
+		
+		
+		WebElement date_of_birth = elements.date();
+		Thread.sleep(1000);
+		date_of_birth.click();
+		
+		Row row = sheet.getRow(4);
+		Cell nation = row.getCell(1);
+		String nationality=""+nation;
+		WebElement nationality_select=elements.nationality();
+		nationality_select.click();
+		Thread.sleep(1000);
+		nationality_select.sendKeys(nationality);
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(prop.getProperty("nationality_select"))));
+		nationality_select.sendKeys(Keys.ARROW_DOWN);
+	    WebElement nationalityName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li[1]/a"));
+	    Thread.sleep(2000);
+	    Actions actions = new Actions(driver);
+	    Thread.sleep(1000);
+	    actions.doubleClick(nationalityName).perform();
+		Thread.sleep(1000);
+		
+		row = sheet.getRow(5);
+		Cell emirate = row.getCell(1);
+		String emirates=""+nation;
+		WebElement emirates_select=elements.emirates();
+		emirates_select.click();
+		emirates_select.sendKeys(emirates);
+	    Thread.sleep(1000);
+	    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='txtDistEmirates']")));
+	    emirates_select.sendKeys(Keys.ARROW_DOWN);
+	    WebElement emiratesName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li/a"));
+	    Thread.sleep(3000);
+	    Actions action = new Actions(driver);
+	    Thread.sleep(1000);
+	    actions.doubleClick(emiratesName).perform();
+	    Thread.sleep(2000);
+	    
+		Row row7 = sheet.getRow(6);
+		Cell visaStat = row7.getCell(1);
+		String visa=""+visaStat;
+	    WebElement visaStatus=elements.visastat();
+	    Select visa_status=new Select(visaStatus);
+		visa_status.selectByVisibleText(visa);
+		Thread.sleep(1000);
+		
+		Row row8 = sheet.getRow(7);
+		Cell countryOfresidence = row8.getCell(1);
+		String country_Of_residence=""+countryOfresidence;
+		WebElement cor=elements.cor();
+	    Select cor1=new Select(cor);
+		cor1.selectByVisibleText(country_Of_residence);
+		Thread.sleep(1000);
+	}
+	@Test(priority=2)
+	public void foreign() throws Exception {
+		WebElement foreign = elements.foreigner();
+		foreign.click();
+		
+		Row row9 = sheet.getRow(8);
+		Cell passport = row9.getCell(1);
+		String pasport_no=""+passport;
+		
+		WebElement passport_no=elements.passportNo();
+	    passport_no.sendKeys(pasport_no);
+	    
+	    WebElement passport_date = elements.passportExpiry();
+	    passport_date.click();
+	    
+	    WebElement confirm=elements.regConfirmation();
+	    confirm.click();
+	}
+}

@@ -1,0 +1,222 @@
+package com.demo.mediware_appointment;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Appointment_check {
+	
+	WebDriver driver;
+	Elements objElements;
+	Properties prop=new Properties();
+	String f_name,mobile_no;
+	Appointment_check(WebDriver driver) throws Exception {
+		// TODO Auto-generated constructor stub
+		this.driver=driver;
+		FileInputStream propFile=new FileInputStream("C:\\Users\\user\\Desktop\\leo\\workSpace\\amal\\Test\\mediware_appointment\\config.properties");
+		prop.load(propFile);
+		objElements = new Elements(driver);
+	}
+	
+	public void login_med() throws Exception {
+		
+		assertEquals(prop.getProperty("userName"),"dsoft");
+		WebElement login_btn=objElements.login();
+		login_btn.click();
+		
+	}
+	
+	public void application_sel() throws Exception {
+		
+		WebElement appnmt_slct=objElements.application_selector();
+		assertTrue(driver.findElement(By.id("imgMediwareLogo")).isDisplayed());
+		appnmt_slct.click();
+		Thread.sleep(3000);
+		
+	}
+	
+	public void hospital_select() throws Exception {
+		WebElement sel_hosp=objElements.hospitalSelect();
+		Select select=new Select(sel_hosp);
+		select.selectByVisibleText(prop.getProperty("hospitalSelect"));
+		WebDriverWait wait=getWait();
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@name='cmbClinic']\")")));
+		//assertTrue(driver.findElement(By.xpath("//select[@name='cmbClinic']")).isDisplayed());
+	}
+	public void nxt() throws Exception {
+		Thread.sleep(2000);
+		WebElement btn_nxt=objElements.next_button();
+		btn_nxt.click();
+		Thread.sleep(2000);
+	}
+	public void appointment() throws Exception {
+		
+		WebElement btn_click=objElements.appointment_take();
+        Thread.sleep(1000);
+        btn_click.click();
+	}
+	
+	public void new_appointment() throws Exception {
+		FileInputStream fis = new FileInputStream("C:\\Users\\user\\Desktop\\leo\\workSpace\\amal\\mediware.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		Row row = sheet.getRow(0);
+		Cell firstname = row.getCell(0);
+		f_name=""+firstname;
+		Cell mobno=row.getCell(1);
+		mobile_no=""+mobno;
+		//int mobileNo= (int)workbook.getSheetAt(0).getRow(0).getCell(1).getNumericCellValue();
+		//String m_no=""+mobileNo;
+		objElements.new_appointment();
+		assertTrue(driver.findElement(By.xpath("//input[@id='txtFirstName']")).isDisplayed());
+		Select select=new Select(objElements.salutation);
+		select.selectByVisibleText(prop.getProperty("salutation"));
+		Thread.sleep(1000);
+		objElements.first_name.sendKeys(f_name);
+		objElements.mobile_number.sendKeys(mobile_no);
+		objElements.confirm_check.click();
+		Thread.sleep(1000);
+		objElements.new_ap.click();
+		objElements.save_appointment.click();
+	}
+	
+	public void registration() throws Exception {
+		Thread.sleep(1000);
+		WebElement new_reg = objElements.reg();
+		new_reg.click();	
+	}
+	
+	public void new_registration() throws Exception {
+		WebDriverWait wait = getWait();
+		objElements.new_registration();
+		Thread.sleep(1000);
+	    
+	}
+	public void vitals() throws InterruptedException, Exception {
+		driver.switchTo().defaultContent();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		assertTrue(driver.findElement(By.xpath("//img[@title='Application Selector']")).isDisplayed());
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Application Selector']")));
+		WebElement application_selector=driver.findElement(By.xpath("//img[@title='Application Selector' and @id='imgApp']"));
+		js.executeScript("arguments[0].click();",application_selector);
+		Thread.sleep(3000);
+		objElements.caredesk();
+		Thread.sleep(2000);
+		objElements.demodatatemp.sendKeys(prop.getProperty("demoDatatemp"));
+		//Thread.sleep(2000);
+		objElements.demodatabp1.sendKeys(prop.getProperty("demoDatabp1"));
+		//Thread.sleep(2000);
+		objElements.demodatabp2.sendKeys(prop.getProperty("demoDatabp2"));
+		objElements.demodataweight.sendKeys(prop.getProperty("demoDataweight"));
+		objElements.demodataheight.sendKeys(prop.getProperty("demoDataheight"));
+		objElements.demodatawc.sendKeys(prop.getProperty("demoDatawc"));
+		//Thread.sleep(2000);
+		WebElement footer=driver.findElement(By.xpath("//div[@id='divFooterTools']"));
+		Actions action=new Actions(driver);
+		action.moveToElement(footer).build().perform();
+		driver.findElement(By.xpath("//input[@name='btSave']")).click();
+		driver.switchTo().alert().accept();
+		driver.switchTo().defaultContent();
+		WebElement assesment=driver.findElement(By.id("CallingPageDiv"));
+		driver.switchTo().frame(assesment);
+		driver.findElement(By.xpath("//div[@id='divRightPanel']//img[@title='Click here to Pin']")).click();
+		driver.findElement(By.xpath("//input[@name='btnPreConsult']")).click();
+		driver.findElement(By.xpath("//img[@id='btnDialogClose']")).click();
+
+		////////////////////////////excel write//////////////////////////////////
+		
+		FileInputStream fis = new FileInputStream("C:\\\\Users\\\\user\\\\Desktop\\\\leo\\\\workSpace\\\\amal\\\\mediware.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		Row row= sheet.createRow(0);
+		Cell cell0=row.createCell(0);
+		Cell cell1=row.createCell(1);
+		Cell cell2 = row.createCell(2);
+		Cell cell3=row.createCell(3);
+		Cell cell4=row.createCell(4);
+		String data1="temp :"+(prop.getProperty("demoData1"));
+		String data2="weight :"+(prop.getProperty("demoData2"));
+		String data3="pulse :"+(prop.getProperty("demoData3"));
+		cell0.setCellValue(f_name);
+		cell1.setCellValue(mobile_no);
+		cell2.setCellType(cell2.CELL_TYPE_STRING);
+		cell2.setCellValue(data1);
+		cell3.setCellType(cell3.CELL_TYPE_STRING);
+		cell3.setCellValue(data2);
+		cell4.setCellType(cell4.CELL_TYPE_STRING);
+		cell4.setCellValue(data3);
+		FileOutputStream fos = new FileOutputStream("C:\\\\Users\\\\user\\\\Desktop\\\\leo\\\\workSpace\\\\amal\\\\mediware.xlsx");
+		workbook.write(fos);
+		fos.close();
+
+		/////////////////////////////////////////////////////////////////////////
+	}
+	public void emr() throws Exception {
+		//driver.switchTo().defaultContent();
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("imgApp")));
+		WebElement application_selector=driver.findElement(By.id("imgApp"));
+		js.executeScript("arguments[0].click();",application_selector);
+		//application_selector.click();
+		objElements.emr_select();
+		assertTrue(driver.findElement(By.id("imgProdLogo")).isDisplayed());
+		//objElements.emr_select.click();
+		Thread.sleep(3000);
+		
+	}
+	public void emr_details_start() {
+		WebElement switch_frame=driver.findElement(By.xpath(prop.getProperty("CallingPageDiv")));
+		driver.switchTo().frame(switch_frame);
+		WebElement doctorNote=objElements.doctor_note();
+		doctorNote.click();
+	}
+	public void notes() {
+		WebElement switch_frame=driver.findElement(By.xpath(prop.getProperty("DivMainPage")));
+		driver.switchTo().frame(switch_frame);
+		WebElement btnsave=objElements.notes_save();
+		driver.switchTo().defaultContent();
+		btnsave.click();
+	}
+	public void select_diagnosis() throws InterruptedException {
+		Thread.sleep(1000);
+		WebElement diagnosis_click=objElements.select_diagnosis();
+		diagnosis_click.click();
+		driver.switchTo().alert().accept();
+	}
+	public void enter_diagnosis() throws Exception {
+		WebElement switch_frame=driver.findElement(By.xpath(prop.getProperty("DivMainPage")));
+		driver.switchTo().frame(switch_frame);
+		WebElement confirm_diagnosis=objElements.enter_diagnosis();
+		confirm_diagnosis.click();
+	}
+	public WebDriverWait getWait() {
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+		wait.ignoring(NoSuchElementException.class);
+		return wait;
+	}
+}

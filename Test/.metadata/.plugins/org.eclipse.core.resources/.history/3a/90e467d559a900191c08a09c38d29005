@@ -1,0 +1,25 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Appointment_take_elements extends Appointment_take{
+
+	public WebElement application_selector() {
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		//Appointment_check objappointment=new  Appointment_check(driver);
+		WebDriverWait wait=getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("application_icon"))));
+		WebElement application_selector=driver.findElement(By.xpath(prop.getProperty("application_icon")));
+		js.executeScript("arguments[0].click();",application_selector);
+		WebElement switch_frame=driver.findElement(By.xpath(prop.getProperty("callingpagediv")));
+		driver.switchTo().frame(switch_frame);
+		WebElement appointment_select=driver.findElement(By.xpath(prop.getProperty("appointment_icon")));
+		return appointment_select;
+		
+	}
+}

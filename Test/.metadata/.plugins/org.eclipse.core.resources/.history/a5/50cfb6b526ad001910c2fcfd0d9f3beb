@@ -1,0 +1,47 @@
+package com.mediware.Mediware;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class VitalDetails extends Vitals{
+
+	VitalDetails_elements elements;
+	@Test
+	public void hospital_select() throws Exception {
+		Appointment_take_elements elements=new Appointment_take_elements();
+		WebElement application=elements.hospitalSelect();
+		Select select=new Select(application);
+		select.selectByVisibleText(prop.getProperty("hospital"));
+		Thread.sleep(1000);
+	}
+	@Test
+	public void apatientSelect() {
+		
+		String pID=null;
+		String patient_Id = patientId.getAttribute("value");
+		List<WebElement> patientList = driver.findElements(By.xpath(prop.getProperty("patientList")));                                                         
+		for(int i=0;i<patientList.size();i++) {
+			pID= driver.findElement(By.xpath("(//tbody//tr//td[@class='PendingPnt NewPnt '])[last()]")).getText();
+			System.out.println(patient_Id);
+			if(patientList.get(i).getText().equalsIgnoreCase(pID)) {	
+				 patientList.get(i).click();
+			}
+		}
+	}
+	@Test
+	public void bvitalClick() {
+		
+		WebElement vitalFrame=elements.vital_Click();
+		driver.switchTo().frame(vitalFrame);
+
+	}
+	@Test
+	public void c_enterDetails() {
+		WebElement vitalClose=elements.enterVitals();
+		vitalClose.click();
+	}
+}

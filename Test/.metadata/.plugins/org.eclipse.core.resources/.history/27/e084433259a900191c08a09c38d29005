@@ -1,0 +1,11 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+
+public class Appointment_take_elements extends Appointment_take{
+
+	public WebElement application_selector() {
+		return;
+		
+	}
+}

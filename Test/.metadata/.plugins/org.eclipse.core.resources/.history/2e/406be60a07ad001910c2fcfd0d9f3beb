@@ -1,0 +1,65 @@
+//login
+usernameId = txtUsername
+loginButton=//input[@id='btnLogin']
+
+//frames
+appointmentDiv=//iframe[@id='AppointmentDiv']
+callingpagediv=//iframe[@id='CallingPageDiv']
+
+
+//appointment take
+application_icon= //img[@title='Application Selector']
+appointment_icon=//a[@href='AppointmentView.aspx']
+hospitalSelect=//select[@name='cmbClinic']
+hospital=TESTING MARINA
+newAppointmentSlot=//div[@class='AppNewSlot gray WCPer  NewEvent NewRegistration']
+hoverDownArrow=//img[@src='img/Down2.png']
+appointmentAddButton=//img[@src='img/Tool-Add.png']
+confirmCheck=//input[@id='chkConfirm']
+radioClick=//input[@id='rdonew']
+saveAppointment=//button[@id='btnSaveAppointment']
+
+//registration
+
+appointSlot=//div[@class='AppEditSlot app WCPer Left50 W2 EditEvent NewRegistration' and text()=' - Amal']
+newRegTool=//img[@src='img/Down2.png']
+regButton=//img[@title='New Registration']
+patient_id=//input[@name='txtPatientID']
+
+date_of_birth=//input[@id='txtDOB']
+year_select=//select[@class='ui-datepicker-year']
+month_select=//select[@class='ui-datepicker-month']
+date_select=//td[@data-year='2000']//a[text()=5]
+
+nationality_select=//input[@id='txtNationality']
+emirates_select=//input[@id='txtDistEmirates']
+visaStat=//select[@name='cmbvisastat']
+cor=//select[@name='cmbCOR']
+
+naEmirates=//input[@id='chkNAEmiratesID']
+naEmail=//input[@id='chkNAEmail']
+
+passport_no=//input[@name='txtPassportNo']
+passport_expiry=//input[@name='txtExpDate']
+passport_expiry_year=//select[@class='ui-datepicker-year']
+passport_expiry_month=//select[@class='ui-datepicker-month']
+passport_expiry_day=//td[@data-year='2027']//a[text()='10']
+
+reg_button=//input[@name='btnRegistration']
+confirm_box=//span[text()='NO']
+
+
+//caredesk
+
+careDesk=//a[@href='CareDesk/CareDeskHome.aspx']
+
+
+
+//datas
+demoDatatemp=37
+demoDatabp1=75
+demoDatabp2=100
+demoDataweight=80
+demoDataheight=200
+demoDatawc=70
+doctor=. Nsc Nurse

@@ -1,0 +1,22 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class Appointment_take extends Base{
+
+	@Test
+	public void application_selector() throws Exception {
+		Appointment_take_elements elements=new Appointment_take_elements();
+		WebElement application_select=elements.applicationSelector();
+		application_select.click();
+		WebElement appointment_take=elements.appointment_click();
+		appointment_take.click();
+		WebElement sel_hosp=elements.hospitalSelect();
+		Select select=new Select(sel_hosp);
+		select.selectByVisibleText(prop.getProperty("hospital"));
+		WebElement appointmentTake=elements.appointment_take();
+		appointmentTake.click();
+	}
+}

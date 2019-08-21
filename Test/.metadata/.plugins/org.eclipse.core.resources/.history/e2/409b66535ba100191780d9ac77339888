@@ -1,0 +1,22 @@
+package com.demo.mediware_appointment;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+public class Main_appointment extends Run_appointment{
+
+	
+	Appointment_check chk;
+	@BeforeClass
+	public void before() {
+		chk=new Appointment_check(driver);
+	}
+	@Test
+	public void run() throws Exception {
+		chk.login_med();
+		chk.application_sel();
+		chk.hospital_select();
+		chk.appointment();
+		//chk.new_appointment();
+		chk.registration();
+	}
+}

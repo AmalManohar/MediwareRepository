@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-08-13T09:06:57Z" name="Default suite" finished-at="2019-08-13T09:08:15Z" duration-ms="78020">
+    <groups>
+    </groups>
+    <test started-at="2019-08-13T09:06:57Z" name="Default test" finished-at="2019-08-13T09:08:15Z" duration-ms="78020">
+      <class name="test.TestScripts">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:06:57Z" name="init" finished-at="2019-08-13T09:07:03Z" duration-ms="5278" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method is-config="true" signature="initObjects()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:03Z" name="initObjects" finished-at="2019-08-13T09:07:03Z" duration-ms="127" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initObjects -->
+        <test-method signature="TC_001()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:03Z" name="TC_001" finished-at="2019-08-13T09:07:14Z" duration-ms="11331" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_001 -->
+        <test-method signature="TC_002()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:14Z" name="TC_002" finished-at="2019-08-13T09:07:31Z" duration-ms="16614" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_002 -->
+        <test-method signature="TC_003()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:31Z" name="TC_003" finished-at="2019-08-13T09:07:41Z" duration-ms="9956" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_003 -->
+        <test-method signature="TC_005()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:41Z" name="TC_005" finished-at="2019-08-13T09:07:46Z" duration-ms="5477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_005 -->
+        <test-method signature="TC_007()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:46Z" name="TC_007" finished-at="2019-08-13T09:07:49Z" duration-ms="2790" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_007 -->
+        <test-method signature="TC_008()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:49Z" name="TC_008" finished-at="2019-08-13T09:07:54Z" duration-ms="4695" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_008 -->
+        <test-method signature="TC_009()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:07:54Z" name="TC_009" finished-at="2019-08-13T09:08:00Z" duration-ms="6435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_009 -->
+        <test-method signature="TC_010()[pri:0, instance:test.TestScripts@21b2e768]" started-at="2019-08-13T09:08:00Z" name="TC_010" finished-at="2019-08-13T09:08:15Z" duration-ms="15276" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_010 -->
+      </class> <!-- test.TestScripts -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

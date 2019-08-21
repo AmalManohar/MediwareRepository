@@ -1,0 +1,183 @@
+package com.demo.mediware_appointment;
+
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Appointment_check {
+
+	WebDriver driver;
+	Appointment_check(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+		this.driver=driver;
+	}
+	public void login_med() {
+		WebElement username = driver.findElement(By.xpath("//input[@id='txtUsername']"));
+		username.sendKeys("dsoft");
+		
+		WebElement click=driver.findElement(By.xpath("//input[@id='btnLogin']"));
+		click.click();
+		//assertTrue(driver.findElement(By.xpath("//img[@id='imgApp']")).isDisplayed());
+	}
+	public void application_sel() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		//Thread.sleep(3000);
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Application Selector']")));
+		
+		WebElement application_selector=driver.findElement(By.xpath("//img[@title='Application Selector']"));
+		js.executeScript("arguments[0].click();",application_selector);
+		//application_selector.click();
+		
+		WebElement switch_frame=driver.findElement(By.xpath("//iframe[@id='CallingPageDiv']"));
+		driver.switchTo().frame(switch_frame);
+		
+		WebElement appointment_select=driver.findElement(By.xpath("//a[@href='AppointmentView.aspx']"));
+		appointment_select.click();
+		Thread.sleep(3000);
+	}
+	
+	public void hospital_select() {
+		Select select=new Select(driver.findElement(By.xpath("//select[@name='cmbClinic']")));
+		select.selectByVisibleText("TESTING MARINA");
+	}
+	public void appointment() throws Exception {
+		WebDriverWait wait = getWait();
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@src='img/Down2.png']")));
+		Thread.sleep(3000);
+		WebElement element = driver.findElement(By.xpath("//div[@class='AppNewSlot gray WCPer  NewEvent NewRegistration']")); 
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
+        Thread.sleep(3000);
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@src='img/Tool-Block.png']")));
+        WebElement element2=driver.findElement(By.xpath("//img[@src='img/Down2.png']"));
+        action.moveToElement(element2).build().perform();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//img[@src='img/Tool-Add.png']")).click();
+	}
+	
+	public void new_appointment() throws Exception {
+		WebElement switch_frame=driver.findElement(By.xpath("//iframe[@id='AppointmentDiv']"));
+		driver.switchTo().frame(switch_frame);
+		Select select=new Select(driver.findElement(By.xpath("//select[@name='cmbSalutation']")));
+		select.selectByVisibleText("Mr");
+		Thread.sleep(1000);
+		driver.findElement(By.id("txtFirstName")).sendKeys("VISHNu");
+		driver.findElement(By.id("txtMobile")).sendKeys("787978978");
+		driver.findElement(By.xpath("//input[@id='chkConfirm']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='rdonew']")).click();
+		driver.findElement(By.xpath("//button[@id='btnSaveAppointment']")).click();
+	}
+	
+	public void registration() throws Exception {
+		driver.switchTo().defaultContent();
+		WebDriverWait wait = getWait();
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@src='img/Down2.png']")));
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.xpath("//div[@class='AppEditSlot app WCPer Left50 W2 EditEvent NewRegistration'][last()]")); 
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
+        Thread.sleep(2000);
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@src='img/Tool-Block.png']")));
+        WebElement element2=driver.findElement(By.xpath("//div[@id='divAppTools']"));
+        action.moveToElement(element2).build().perform();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@title='New Registration']")).click();	
+	}
+	
+	public void new_registration() throws Exception {
+		WebDriverWait wait = getWait();
+		WebElement switch_frame=driver.findElement(By.xpath("//iframe[@id='AppointmentDiv']"));
+		driver.switchTo().frame(switch_frame);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@id='txtDOB']")).click();
+		Select year_select=new Select(driver.findElement(By.xpath("//select[@class='ui-datepicker-year']")));
+		year_select.selectByVisibleText("1997");
+		Thread.sleep(1000);
+		Select month_select=new Select(driver.findElement(By.xpath("//select[@class='ui-datepicker-month']")));
+		month_select.selectByVisibleText("Apr");
+		Thread.sleep(1000);
+		WebElement dob_date=driver.findElement(By.xpath("//td[@data-year='1997']//a[text()=5]"));
+		dob_date.click();
+		WebElement nationality=driver.findElement(By.xpath("//input[@id='txtNationality']"));
+		nationality.click();
+		nationality.sendKeys("ARG");
+		nationality.sendKeys(Keys.ARROW_DOWN);
+		Thread.sleep(1000);
+		Actions actions = new Actions(driver);
+	    WebElement sessionName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li[1]/a"));
+	    actions.doubleClick(sessionName).perform();
+	    Thread.sleep(1000);
+	    WebElement emirates=driver.findElement(By.xpath("//input[@id='txtDistEmirates']"));
+	    emirates.click();
+	    emirates.sendKeys("ABU");
+	    emirates.sendKeys(Keys.ARROW_DOWN);
+	    Thread.sleep(3000);
+	    WebElement emiratesName = driver.findElement(By.xpath("//*[@id=\"divDictionary\"]/ul/li/a"));
+	    actions.doubleClick(emiratesName).perform();
+	    Thread.sleep(2000);
+	    Select visa_status=new Select(driver.findElement(By.xpath("//select[@name='cmbvisastat']")));
+		visa_status.selectByVisibleText("VISIT VISA");
+		Thread.sleep(1000);
+	    Select cor=new Select(driver.findElement(By.xpath("//select[@name='cmbCOR']")));
+		cor.selectByVisibleText("INDIA");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@id='chkNAEmiratesID']")).click();
+		driver.findElement(By.xpath("//input[@id='chkNAEmail']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[@id='tab2']")).click();
+		WebElement passport_no=driver.findElement(By.xpath("//input[@name='txtPassportNo']"));
+		passport_no.sendKeys("000000000");
+		WebElement passport_expiry=driver.findElement(By.xpath("//input[@name='txtExpDate']"));
+		passport_expiry.click();
+		Select exp_year=new Select(driver.findElement(By.xpath("//select[@class='ui-datepicker-year']")));
+		exp_year.selectByVisibleText("2027");
+		Thread.sleep(2000);
+		Select exp_month=new Select(driver.findElement(By.xpath("//select[@class='ui-datepicker-month']")));
+		exp_month.selectByVisibleText("May");
+		Thread.sleep(2000);
+		WebElement exp_date=driver.findElement(By.xpath("//td[@data-year='2027']//a[text()='10']"));
+		exp_date.click();
+		driver.findElement(By.xpath("//input[@name='btnRegistration']")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//span[text()='NO']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='NO']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='NO']")).click();
+	}
+	
+	public void vitals() throws InterruptedException {
+		driver.switchTo().defaultContent();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebDriverWait wait = getWait();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@title='Application Selector']")));
+		WebElement application_selector=driver.findElement(By.xpath("//img[@title='Application Selector' and @id='imgApp']"));
+		js.executeScript("arguments[0].click();",application_selector);
+		
+		WebElement switch_frame=driver.findElement(By.xpath("//iframe[@id='CallingPageDiv']"));
+		driver.switchTo().frame(switch_frame);
+		
+		WebElement appointment_select=driver.findElement(By.xpath("//a[@href='CareDesk/CareDeskHome.aspx']"));
+		appointment_select.click();
+		Thread.sleep(3000);
+		
+		
+	}
+	public WebDriverWait getWait() {
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+		wait.ignoring(NoSuchElementException.class);
+		return wait;
+	}
+}

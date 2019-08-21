@@ -1,0 +1,27 @@
+baseUrl=http://mediwarecloud.com/MediwareQC/login.aspx
+userName=dsoft
+hospitalSelect=TESTING MARINA
+salutation=Baby
+firstName=CERSEI
+mobileNo=9865345998
+dobYear=1996
+dobMonth=Nov
+nationality=ARGE
+emirates=DUB
+visaStat=VISIT VISA
+countryOfResidence=INDIA
+passportNo=9854678987
+expiryYear=2027
+expiryMonth=Oct
+demoDatatemp=37
+demoDatabp1=75
+demoDatabp2=100
+demoDataweight=80
+demoDataheight=200
+demoDatawc=70
+doctor=. Nsc Nurse
+diagnosisname=(Idiopathic) normal pressure hydrocephalus
+icd=G91.2        (Idiopathic) normal pressure hydrocephalus
+///frames///
+CallingPageDiv=//iframe[@id='CallingPageDiv']
+DivMainPage=//iframe[@id='DivMainPage']

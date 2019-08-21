@@ -1,0 +1,20 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+
+public class Vitals extends Base{
+
+	public void vitalsEntry() throws Exception {
+	
+		Vital_elements elements = new Vital_elements();
+		driver.switchTo().defaultContent();
+		WebElement application = elements.application_select();
+		Thread.sleep(1000);
+		
+		WebElement caredesk = elements.careDesk();
+		caredesk.click();
+	}
+	
+	
+	
+}

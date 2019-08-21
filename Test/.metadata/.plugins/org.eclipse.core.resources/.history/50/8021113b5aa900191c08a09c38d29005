@@ -1,0 +1,13 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Appointment_take extends Base{
+
+	@Test
+	public void application_selector() {
+		Appointment_take_elements elements=new Appointment_take_elements();
+		WebElement applcation_select=elements.application_selector();
+	}
+}

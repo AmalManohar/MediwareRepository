@@ -1,0 +1,34 @@
+package com.mediware.Mediware;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class VitalDetails extends Vitals{
+
+	VitalDetails_elements elements;
+	public void patientSelect() {
+		
+		String pID=null;
+		String patient_Id = patientId.getAttribute("value");
+		List<WebElement> patientList = driver.findElements(By.xpath(prop.getProperty("patientList")));                                                         
+		for(int i=0;i<patientList.size();i++) {
+			//pID= driver.findElement(By.xpath("(//tbody//tr//td[@class='PendingPnt NewPnt '])[last()]")).getText();
+			System.out.println(patient_Id);
+			if(patientList.get(i).getText().equalsIgnoreCase(patient_Id)) {	
+				 patientList.get(i).click();
+			}
+		}
+	}
+	public void vitalClick() {
+		
+		WebElement vitalFrame=elements.vital_Click();
+		driver.switchTo().frame(vitalFrame);
+
+	}
+	public void enterDetails() {
+		WebElement vitalClose=elements.enterVitals();
+		vitalClose.click();
+	}
+}

@@ -1,0 +1,47 @@
+package com.mediware.Mediware;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class VitalDetails_elements extends VitalDetails{
+	
+	public WebElement vital_Click() {
+		WebElement menu_frame=driver.findElement(By.xpath(prop.getProperty("callingpagediv")));
+		driver.switchTo().frame(menu_frame);
+		WebElement vital = driver.findElement(By.xpath(prop.getProperty("vitalClick")));
+		vital.click();
+		WebElement vital_frame=driver.findElement(By.xpath(prop.getProperty("divmainPage")));
+		return vital_frame;
+	}
+	public void enterVitals() {
+		//Row row = sheet.getRow(10);
+		//Cell year_select = row.getCell(1);
+		int temp= (int)workbook.getSheetAt(0).getRow(10).getCell(1).getNumericCellValue();
+		String year1=""+temp;
+		int bp1= (int)workbook.getSheetAt(0).getRow(11).getCell(1).getNumericCellValue();
+		String bp_1=""+bp1;
+		int bp2= (int)workbook.getSheetAt(0).getRow(12).getCell(1).getNumericCellValue();
+		String bp_2=""+bp2;
+		int weight= (int)workbook.getSheetAt(0).getRow(13).getCell(1).getNumericCellValue();
+		String weightValue=""+weight;
+		int height= (int)workbook.getSheetAt(0).getRow(14).getCell(1).getNumericCellValue();
+		String heightValue=""+height;
+		int wc= (int)workbook.getSheetAt(0).getRow(15).getCell(1).getNumericCellValue();
+		String wcValue=""+wc;
+		WebElement footer=driver.findElement(By.xpath(prop.getProperty("footer")));
+		Actions action=new Actions(driver);
+		action.moveToElement(footer).build().perform();
+		driver.findElement(By.xpath(prop.getProperty("buttonSave"))).click();
+		driver.switchTo().alert().accept();
+		driver.switchTo().defaultContent();
+		WebElement assesment=driver.findElement(By.id("CallingPageDiv"));
+		driver.switchTo().frame(assesment);
+		driver.findElement(By.xpath(prop.getProperty("clickToPin"))).click();
+		driver.findElement(By.xpath(prop.getProperty("preConsultButton"))).click();
+		driver.findElement(By.xpath(prop.getProperty("buttonClose"))).click();
+	}
+
+}

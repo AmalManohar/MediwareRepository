@@ -1,0 +1,38 @@
+package com.mediware.Mediware;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class VitalDetails extends Vitals{
+
+	VitalDetails_elements elements;
+	public void patientSelect() {
+		
+		String pID=null;
+		String patient_Id = patientId.getAttribute("value");
+		List<WebElement> patientList = driver.findElements(By.xpath(prop.getProperty("patientList")));                                                         
+		for(int i=0;i<patientList.size();i++) {
+			//pID= driver.findElement(By.xpath("(//tbody//tr//td[@class='PendingPnt NewPnt '])[last()]")).getText();
+			System.out.println(patient_Id);
+			if(patientList.get(i).getText().equalsIgnoreCase(patient_Id)) {	
+				 patientList.get(i).click();
+			}
+		}
+	}
+	public void vitalClick() {
+		WebElement menu_frame=driver.findElement(By.xpath(prop.getProperty("callingpagediv")));
+		driver.switchTo().frame(menu_frame);
+		WebElement vital = elements.vitalClick();
+		vital.click();
+		WebElement vital_frame=driver.findElement(By.xpath(prop.getProperty("divmainPage")));
+		driver.switchTo().frame(vital_frame);
+		demodatatemp=driver.findElement(By.xpath("//input[@name='rptVitals1$ctl00$txtTemp']"));
+		demodatabp1=driver.findElement(By.xpath("//input[@name='rptVitals1$ctl00$txtSbp']"));
+		demodatabp2=driver.findElement(By.xpath("//input[@name='rptVitals1$ctl00$txtDbp']"));
+		demodataweight=driver.findElement(By.xpath("//input[@name='rptVitals1$ctl00$txtWeight']"));
+		demodataheight=driver.findElement(By.xpath("//input[@name='rptVitals1$ctl00$txtHeight']"));
+		demodatawc=driver.findElement(By.xpath("//input[@name='rptVitals2$ctl00$txtComp11']"));
+	}
+}

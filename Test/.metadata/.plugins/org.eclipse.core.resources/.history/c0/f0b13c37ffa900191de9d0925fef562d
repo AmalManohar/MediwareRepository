@@ -1,0 +1,25 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class Registration_elements extends Registration{
+	WebElement patient_id;
+	public WebElement regClick() throws Exception {
+	
+	Thread.sleep(1000);
+	WebElement element = driver.findElement(By.xpath(prop.getProperty("appointSlot")));
+	Actions action = new Actions(driver);
+    action.moveToElement(element).build().perform();
+    Thread.sleep(1000);
+    WebElement element2=driver.findElement(By.xpath(prop.getProperty("newRegTool")));
+    action.moveToElement(element2).build().perform();
+    Thread.sleep(1000);
+    WebElement new_reg=driver.findElement(By.xpath(prop.getProperty("regButton")));
+    return new_reg;
+	}
+	public WebElement reg_details() {
+		
+	}
+}

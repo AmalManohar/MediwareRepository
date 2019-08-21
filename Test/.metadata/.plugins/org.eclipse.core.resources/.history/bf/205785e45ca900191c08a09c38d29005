@@ -1,0 +1,36 @@
+package com.mediware.Mediware;
+
+import java.util.NoSuchElementException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+
+public class Base {
+
+	public static WebDriver driver;
+	public Properties prop;
+	@BeforeTest
+	public void load() throws Exception{
+
+		prop=new Properties();
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Desktop\\leo\\workSpace\\amal\\Test\\Mediware\\chromedriver.exe");
+        ChromeOptions options=new ChromeOptions();
+        options.addArguments("--disable-infobars");
+        driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
+		driver.get("http://mediwarecloud.com/MediwareQC/login.aspx");
+		
+	}
+	public WebDriverWait getWait() {
+		wait = new WebDriverWait(driver, 60);
+		wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+		wait.ignoring(NoSuchElementException.class);
+		return wait;
+	}
+}

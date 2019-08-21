@@ -1,0 +1,17 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Login extends Base{
+
+	@Test
+	public void login() throws Exception {
+		Login_elements elements=new Login_elements();
+		WebElement userName= elements.login_username();
+		userName.sendKeys("dsoft");
+		WebElement button = elements.login_button();
+		button.click();
+		
+	}
+}

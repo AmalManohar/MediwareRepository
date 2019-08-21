@@ -1,0 +1,26 @@
+package com.mediware.Mediware;
+
+import static org.testng.Assert.assertEquals;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class Login extends Base{
+
+	@Test
+	public void login() throws Exception {
+		//user name
+		Row row1 = sheet.getRow(0);
+		Cell userName = row1.getCell(1);
+		String user=""+userName;
+		Login_elements elements=new Login_elements();
+		WebElement user_Name= elements.login_username();
+		user_Name.sendKeys(user);
+		assertEquals(prop.getProperty("userName"),"dsoft");
+		WebElement button = elements.login_button();
+		button.click();
+		
+	}
+}

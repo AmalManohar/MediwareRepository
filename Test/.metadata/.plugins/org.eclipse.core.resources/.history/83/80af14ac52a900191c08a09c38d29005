@@ -1,0 +1,18 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Login extends Base{
+
+	WebDriver driver;
+
+	public void username() throws Exception {
+		WebElements elements = new WebElements(driver);
+		WebElement userName= elements.login_username();
+		userName.sendKeys("dsoft");
+		WebElement button = elements.login_button();
+		button.click();
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.demo.mediware_appointment;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+public class Main_appointment extends Run_appointment{
+
+	
+	Appointment_check chk;
+	@BeforeClass
+	public void before() {
+		chk=new Appointment_check();
+	}
+	@Test
+	public void run() throws Exception {
+	}
+}

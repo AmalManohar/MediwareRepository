@@ -1,0 +1,15 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.ie.ElementScrollBehavior;
+import org.testng.annotations.Test;
+
+public class Registration extends Base{
+
+	@Test
+	public void reg() throws Exception {
+		Registration_elements elements=new Registration_elements();
+		WebElement register=elements.regClick();
+		register.click();
+	}
+}

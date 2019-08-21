@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.google.common.collect.Table.Cell"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.util.WorkbookUtil"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Workbook"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFWorkbook"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.demo.mediware_appointment.App"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.demo.mediware_appointment.Elements"/>
+<fullyQualifiedTypeName name="com.demo.mediware_appointment.Appointment_check"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Alert"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Login"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.WebElements"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Appointment_take"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Registration"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.ie.ElementScrollBehavior"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Registration_elements"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Appointment_take_elements"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Vital_elements"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Vitals"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.VitalDetails"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.VitalDetails_elements"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.EmrSelect_elements"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.Base"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.PerformEmr_elements"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFSheet"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Row"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Cell"/>
+<fullyQualifiedTypeName name="com.mediware.Mediware.PerformEmr"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+</qualifiedTypeNameHistroy>

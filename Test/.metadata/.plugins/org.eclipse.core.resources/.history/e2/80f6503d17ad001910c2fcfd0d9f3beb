@@ -1,0 +1,17 @@
+package com.mediware.Mediware;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class VitalDetails_elements extends VitalDetails{
+	
+	public WebElement vital_Click() {
+		WebElement menu_frame=driver.findElement(By.xpath(prop.getProperty("callingpagediv")));
+		driver.switchTo().frame(menu_frame);
+		WebElement vital = driver.findElement(By.xpath(prop.getProperty("vitalClick")));
+		vital.click();
+		WebElement vital_frame=driver.findElement(By.xpath(prop.getProperty("divmainPage")));
+		return vital_frame;
+	}
+
+}

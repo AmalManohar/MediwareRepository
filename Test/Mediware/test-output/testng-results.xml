@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="6" total="17" passed="11" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-07-26T09:28:14Z" name="Suite" finished-at="2019-07-26T09:30:43Z" duration-ms="148993">
+    <groups>
+    </groups>
+    <test started-at="2019-07-26T09:28:14Z" name="Test" finished-at="2019-07-26T09:30:43Z" duration-ms="148993">
+      <class name="com.mediware.Mediware.EmrSelect">
+        <test-method signature="emrSelect()[pri:0, instance:com.mediware.Mediware.EmrSelect@32910148]" started-at="2019-07-26T09:29:59Z" name="emrSelect" finished-at="2019-07-26T09:30:05Z" duration-ms="5902" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emrSelect -->
+      </class> <!-- com.mediware.Mediware.EmrSelect -->
+      <class name="com.mediware.Mediware.Login">
+        <test-method is-config="true" signature="load()[pri:0, instance:com.mediware.Mediware.Login@394a2528]" started-at="2019-07-26T09:28:14Z" name="load" finished-at="2019-07-26T09:28:21Z" duration-ms="7173" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- load -->
+        <test-method signature="login()[pri:0, instance:com.mediware.Mediware.Login@394a2528]" started-at="2019-07-26T09:28:21Z" name="login" finished-at="2019-07-26T09:28:21Z" duration-ms="301" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- com.mediware.Mediware.Login -->
+      <class name="com.mediware.Mediware.Appointment_take">
+        <test-method signature="application_selector()[pri:0, instance:com.mediware.Mediware.Appointment_take@6236eb5f]" started-at="2019-07-26T09:28:21Z" name="application_selector" finished-at="2019-07-26T09:28:41Z" duration-ms="20302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- application_selector -->
+      </class> <!-- com.mediware.Mediware.Appointment_take -->
+      <class name="com.mediware.Mediware.Vitals">
+        <test-method signature="vitalsEntry()[pri:0, instance:com.mediware.Mediware.Vitals@fa36558]" started-at="2019-07-26T09:29:35Z" name="vitalsEntry" finished-at="2019-07-26T09:29:41Z" duration-ms="6404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vitalsEntry -->
+      </class> <!-- com.mediware.Mediware.Vitals -->
+      <class name="com.mediware.Mediware.Registration">
+        <test-method signature="areg()[pri:0, instance:com.mediware.Mediware.Registration@7c1e2a9e]" started-at="2019-07-26T09:28:41Z" name="areg" finished-at="2019-07-26T09:29:16Z" duration-ms="34898" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- areg -->
+        <test-method signature="bforeign()[pri:0, instance:com.mediware.Mediware.Registration@7c1e2a9e]" started-at="2019-07-26T09:29:16Z" name="bforeign" finished-at="2019-07-26T09:29:35Z" duration-ms="18522" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bforeign -->
+      </class> <!-- com.mediware.Mediware.Registration -->
+      <class name="com.mediware.Mediware.VitalDetails">
+        <test-method signature="apatientSelect()[pri:0, instance:com.mediware.Mediware.VitalDetails@672872e1]" started-at="2019-07-26T09:29:41Z" name="apatientSelect" finished-at="2019-07-26T09:29:46Z" duration-ms="5236" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- apatientSelect -->
+        <test-method signature="bvitalClick()[pri:0, instance:com.mediware.Mediware.VitalDetails@672872e1]" started-at="2019-07-26T09:29:46Z" name="bvitalClick" finished-at="2019-07-26T09:29:50Z" duration-ms="3842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bvitalClick -->
+        <test-method signature="c_enterDetails()[pri:0, instance:com.mediware.Mediware.VitalDetails@672872e1]" started-at="2019-07-26T09:29:50Z" name="c_enterDetails" finished-at="2019-07-26T09:29:55Z" duration-ms="4610" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- c_enterDetails -->
+        <test-method signature="vitalsEntry()[pri:0, instance:com.mediware.Mediware.VitalDetails@672872e1]" started-at="2019-07-26T09:29:55Z" name="vitalsEntry" finished-at="2019-07-26T09:29:59Z" duration-ms="4250" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- vitalsEntry -->
+      </class> <!-- com.mediware.Mediware.VitalDetails -->
+      <class name="com.mediware.Mediware.PerformEmr">
+        <test-method signature="doctorSelect()[pri:0, instance:com.mediware.Mediware.PerformEmr@3f56875e]" started-at="2019-07-26T09:30:05Z" name="doctorSelect" finished-at="2019-07-26T09:30:43Z" duration-ms="37486" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doctorSelect -->
+      </class> <!-- com.mediware.Mediware.PerformEmr -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

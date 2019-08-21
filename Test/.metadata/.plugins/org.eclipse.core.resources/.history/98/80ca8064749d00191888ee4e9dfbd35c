@@ -1,0 +1,19 @@
+package com.demo.mediware_casuality;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeMethod;
+
+public class Casuality_check {
+	
+	@BeforeMethod
+	public void load(){
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\SE-MENTOR\\Desktop\\Test\\TestMaven\\chromedriver.exe");
+        ChromeOptions options=new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");
+	}
+
+}
